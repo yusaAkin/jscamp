@@ -1,4 +1,3 @@
-// DERS1 JavaScript Temelleri
 console.log("Merhaba Kodlama.io")
 // JS type safe değildir
 let dolarDun = 9.20

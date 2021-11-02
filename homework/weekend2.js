@@ -1,8 +1,8 @@
 // JavaScript ile istediğiniz kadar sayı parametre gönderebileceğiniz bir fonksiyon yazınız.
 // Bu fonksiyona gönderdiğiniz her sayı için çıktı olarak asal olup olmadığını yazınız.
-let primeNumber = []
-let notPrimeNumber = []
 const findPrime = (...numbers) => {
+    let primeNumber = []
+    let notPrimeNumber = []
     numbers.map(number => {
         let counter = 0
         for (let i = 1; i <= number; i++) {

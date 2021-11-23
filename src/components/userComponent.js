@@ -1,29 +1,22 @@
-// console.log("User component yüklendi")
-// let customer = {id:1, firstName:"Engin"}
-// customer.lastName = "Demiroğ"
-// console.log(customer.lastName)
-
-import { Baselogger, Elasticlogger, MongoLogger } from "../crossCuttingConcerrs/logging/logger.js"
-import Customer from "../models/customer.js"
+import EmplooyeeService from "../services/emplooyeeService.js"
+import CustomerService from "../services/customerService.js"
 import User from "../models/user.js"
-import UserService from "../services/userService.js"
 
-let logger1 = new Elasticlogger()
-let userService = new UserService(logger1)
-let user1 = new User(1,"Engin","Demiroğ","Ankara")
-let user2 = new User(2,"Baran","Gökçekli","Muğla")
+let customer = new CustomerService()
+let employee = new EmplooyeeService()
+let user1 = new User(7,"Yuşa","Akın","İstanbul","25","customer")
+let user2 = new User(8,"Mücahid","Akın","İstanbul","21","employee")
 
-userService.add(user1)
-userService.add(user2)
-// console.log(userService.list())
-// console.log(userService.getById(2))
-console.log("-----------------------")
-userService.load()
+customer.load()
+console.log("-----Customer----")
+customer.add(user1)
+console.log(customer.list())
+console.log(customer.getById(1))
+console.log(customer.getSorted())
 
-let customerToAdd = new Customer(1,"Seda","Yılmaz","Ankara","adsgasgasg")
-customerToAdd.type = "customer"
-userService.add(customerToAdd)
-console.log(userService.customers)
-console.log(userService.employees)
-console.log(userService.errors)
-console.log(userService.getCustomerSorted())
+employee.load()
+console.log("-----Employee----")
+employee.add(user2)
+console.log(employee.list())
+console.log(employee.getById(3))
+console.log(employee.getSorted())
